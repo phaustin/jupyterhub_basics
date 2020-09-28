@@ -9,10 +9,15 @@ dependencies:
   - pip=20
   - numpy
   - scipy
+  - a301_lib
   - matplotlib
   - netcdf4
   - pyhdf
   - hdf4
   - Pillow
   - jupytext
+  - cartopy
+  - pyresample
+  - rasterio
+  - fiona
 # conda-lock -f environment.yml -p linux-64
