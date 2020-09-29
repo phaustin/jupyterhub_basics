@@ -16,6 +16,7 @@ c.DockerSpawner.image = 'phaustin/notebook:text_sep28'
 notebook_dir = "/home/jovyan/work"
 c.DockerSpawner.notebook_dir = notebook_dir
 c.DockerSpawner.volumes = {"texthub-user-{username}": notebook_dir}
+c.DockerSpawner.prefix = "python_text"
 
 # tell the user containers to connect to our docker network
 c.DockerSpawner.network_name = 'net_text_sep28'

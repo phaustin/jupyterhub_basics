@@ -1,26 +1,29 @@
 version: '3.8'
 
 services:
-  jupyterhub_test:
+  texthub_test:
     build: hub_image
     image: phaustin/hub07:text_sep28
-    depends_on: [notebook]
+    container_name: jupyterhub_text_sep28
+    depends_on: [text_notebook]
     ports:
       - ${NB_PORT}:8000
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
-      - net_test
+      - net_text
 
-  notebook:
+  text_notebook:
     image: phaustin/notebook:text_sep28
     build:
       context: notebook_image
+    container_name: notebook_text_sep28
 
 # force the network name to be "jupyterhub"
 # this needs to be matched in jupyterhub_config.py by:
 # c.DockerSpawner.network_name = 'jupyterhub'
 networks:
-    net_test:
+    net_text:
       driver: bridge
+      name: net_text_sep28
 
