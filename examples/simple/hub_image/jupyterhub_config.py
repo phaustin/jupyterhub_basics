@@ -24,7 +24,9 @@ c.DockerSpawner.volumes = {"jupyterhub-user-{username}": notebook_dir,
                             "/ScratchSSD/docker/a301_setup/a301_2020/a301_lib": 
                             {"bind": '/home/jovyan/work/a301_lib', "mode": "ro"},
                             "/ScratchSSD/docker/a301_setup/a301_2020/data_share": 
-                            {"bind": '/home/jovyan/work/data_share', "mode": "rw"}
+                            {"bind": '/home/jovyan/work/data_share', "mode": "rw"},
+                            "/ScratchSSD/docker/a301_setup/a301_2020/sat_lib": 
+                            {"bind": '/home/jovyan/work/sat_lib', "mode": "ro"}
                            }
 
 
