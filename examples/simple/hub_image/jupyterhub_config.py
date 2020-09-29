@@ -8,26 +8,17 @@ c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
 c.JupyterHub.hub_ip = '0.0.0.0'
 # the hostname/ip that should be used to connect to the hub
 # this is usually the hub container's name
-c.JupyterHub.hub_connect_ip = 'jupyterhub_sep28'
+c.JupyterHub.hub_connect_ip = 'jupyterhub_text_sep28'
 
 # pick a docker image. This should have the same version of jupyterhub
 # in it as our Hub.
-c.DockerSpawner.image = 'phaustin/notebook:sep28'
+c.DockerSpawner.image = 'phaustin/notebook:text_sep28'
 notebook_dir = "/home/jovyan/work"
 c.DockerSpawner.notebook_dir = notebook_dir
+c.DockerSpawner.volumes = {"texthub-user-{username}": notebook_dir}
 
 # tell the user containers to connect to our docker network
-c.DockerSpawner.network_name = 'net_sep28'
-c.DockerSpawner.volumes = {"jupyterhub-user-{username}": notebook_dir,
-                            "/ScratchSSD/docker/a301_setup/a301_2020/sat_data": 
-                            {"bind": '/home/jovyan/work/sat_data', "mode": "ro"},
-                            "/ScratchSSD/docker/a301_setup/a301_2020/a301_lib": 
-                            {"bind": '/home/jovyan/work/a301_lib', "mode": "ro"},
-                            "/ScratchSSD/docker/a301_setup/a301_2020/data_share": 
-                            {"bind": '/home/jovyan/work/data_share', "mode": "rw"},
-                            "/ScratchSSD/docker/a301_setup/a301_2020/sat_lib": 
-                            {"bind": '/home/jovyan/work/sat_lib', "mode": "ro"}
-                           }
+c.DockerSpawner.network_name = 'net_text_sep28'
 
 
 # delete containers when the stop

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 echo "starting jupyter extension installs"
 jupyter labextension install --clean \
                             @jupyter-widgets/jupyterlab-manager
