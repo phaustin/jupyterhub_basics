@@ -1,16 +1,4 @@
-https://github.com/phaustin/jupyterhub_basics/issues/1
-
-cd jupyterhub_basics/examples/simple
-./bringdown.sh
-docker network create jupyterhub
-docker-compose pull notebook
-docker-compose build jupyterhub
-docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock --net jupyterhub --name jupyterhub -p8000:8000 hub
-
-Original source:  https://github.com/jupyterhub/dockerspawner/tree/master/examples/simple
-
-
-# Running JupyterHub itself in docker
+# Running JupyterHub  in docker
 
 This is a simple example of running jupyterhub in a docker container.
 
@@ -20,53 +8,46 @@ This example will:
 - run jupyterhub in a container
 - enable 'dummy authenticator' for testing
 - run users in their own containers
+- mount a volume name jupyterhub-user-username for each user
 
 It does not:
 
-- enable persistent storage for users or the hub
 - run the proxy in its own container
 
-## Initial setup
+## to skip building the images
 
-The first thing we are going to do is create a network for jupyterhub to use.
+cd jupyterhub_basics/examples/simple
+docker-compose pull notebook
+docker-compose pull jupyterhub
 
-```bash
-docker network create jupyterhub
-```
+## to build the images
 
-Second, we are going to build our hub image:
+docker-compose build notebook
+docker-compose build jupyterhub
 
-```bash
-docker build -t hub .
-```
+## to start the hub
 
-We also want to pull the image that will be used:
+### using docker run
 
-```bash
-docker pull jupyter/base-notebook
-```
+    docker network create net_basic
+    docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock --net net_basic \
+        --name jupyterhub_basic -p8082:8000 phaustin/newhub:step1
 
-## Start the hub
 
-To start the hub, we want to:
+### using  docker-compose run
 
-- run it on the docker network
-- expose port 8000
-- mount the host docker socket
+    docker-compose up
 
-```bash
-docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock --net jupyterhub --name jupyterhub -p8000:8000 hub
-```
+### to start a notebook
 
-Now we should have jupyterhub running on port 8000 on our docker host.
+* open your browser at localhost:8082
 
-## Further goals
+* log in with anyname/anypassword
 
-This shows the *very basics* of running the Hub in a docker container (mainly setting up the network). To run for real, you will want to:
+## to remove network and docker processes
 
-- mount a volume (or a database) for the hub state
-- mount volumes for user storage so they don't lose data on each shutdown
-- pick a real authenticator
-- run the proxy in a separate container so that reloading hub configuration doesn't disrupt users
+     ./bringdown.sh
 
-[jupyterhub-deploy-docker](https://github.com/jupyterhub/jupyterhub-deploy-docker) does all of these things.
+Original source:  https://github.com/jupyterhub/dockerspawner/tree/master/examples/simple
+
+
