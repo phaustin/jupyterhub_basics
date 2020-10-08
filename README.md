@@ -16,14 +16,14 @@ It does not:
 
 ## to skip building the images
 
-cd jupyterhub_basics/examples/simple
-docker-compose pull notebook
-docker-compose pull jupyterhub
+    cd jupyterhub_basics/examples/simple
+    docker-compose pull notebook
+    docker-compose pull jupyterhub
 
 ## to build the images
 
-docker-compose build notebook
-docker-compose build jupyterhub
+    docker-compose build notebook
+    docker-compose build jupyterhub
 
 ## to start the hub
 
