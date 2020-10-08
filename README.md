@@ -8,13 +8,13 @@ This example will:
 - run jupyterhub in a container
 - enable 'dummy authenticator' for testing
 - run users in their own containers
+- mount a volume name jupyterhub-user-username for each user
 
 It does not:
 
-- enable persistent storage for users or the hub
 - run the proxy in its own container
 
-## if you don't want to build the images
+## to skip building the images
 
 cd jupyterhub_basics/examples/simple
 docker-compose pull notebook
@@ -25,8 +25,9 @@ docker-compose pull jupyterhub
 docker-compose build notebook
 docker-compose build jupyterhub
 
-### using docker run
+## to start the hub
 
+### using docker run
 
     docker network create net_basic
     docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock --net net_basic \
@@ -42,6 +43,10 @@ docker-compose build jupyterhub
 * open your browser at localhost:8082
 
 * log in with anyname/anypassword
+
+## to remove network and docker processes
+
+     ./bringdown.sh
 
 Original source:  https://github.com/jupyterhub/dockerspawner/tree/master/examples/simple
 
