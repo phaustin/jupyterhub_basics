@@ -14,10 +14,12 @@ dependencies:
   - netcdf4
   - pyhdf
   - hdf4
+  - h5py
   - Pillow
   - jupytext
   - cartopy
   - pyresample
   - rasterio
   - fiona
+  - pandas
 # conda-lock -f environment.yml -p linux-64
