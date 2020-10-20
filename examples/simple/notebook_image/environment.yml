@@ -22,4 +22,5 @@ dependencies:
   - rasterio
   - fiona
   - pandas
+  - pytest
 # conda-lock -f environment.yml -p linux-64

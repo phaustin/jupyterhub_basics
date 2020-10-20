@@ -8,16 +8,16 @@ c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
 c.JupyterHub.hub_ip = '0.0.0.0'
 # the hostname/ip that should be used to connect to the hub
 # this is usually the hub container's name
-c.JupyterHub.hub_connect_ip = 'jupyterhub_sep29'
+c.JupyterHub.hub_connect_ip = 'jupyterhub_oct20'
 
 # pick a docker image. This should have the same version of jupyterhub
 # in it as our Hub.
-c.DockerSpawner.image = 'phaustin/notebook:sep29'
+c.DockerSpawner.image = 'phaustin/notebook:oct20'
 notebook_dir = "/home/jovyan/work"
 c.DockerSpawner.notebook_dir = notebook_dir
 
 # tell the user containers to connect to our docker network
-c.DockerSpawner.network_name = 'net_sep29'
+c.DockerSpawner.network_name = 'net_oct20'
 c.DockerSpawner.volumes = {"jupyterhub-user-{username}": notebook_dir,
                             "/ScratchSSD/docker/a301_setup/a301_2020/sat_data": 
                             {"bind": '/home/jovyan/work/sat_data', "mode": "ro"},
