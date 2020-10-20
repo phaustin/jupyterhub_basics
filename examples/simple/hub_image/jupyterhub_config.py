@@ -19,13 +19,13 @@ c.DockerSpawner.notebook_dir = notebook_dir
 # tell the user containers to connect to our docker network
 c.DockerSpawner.network_name = 'net_oct20'
 c.DockerSpawner.volumes = {"jupyterhub-user-{username}": notebook_dir,
-                            "/ScratchSSD/docker/a301_setup/a301_2020/sat_data": 
+                            "/ScratchSSD/docker/jovyan/work/sat_data": 
                             {"bind": '/home/jovyan/work/sat_data', "mode": "ro"},
-                            "/ScratchSSD/docker/a301_setup/a301_2020/a301_lib": 
+                            "/ScratchSSD/docker/jovyan/work/a301_lib": 
                             {"bind": '/home/jovyan/work/a301_lib', "mode": "ro"},
-                            "/ScratchSSD/docker/a301_setup/a301_2020/data_share": 
+                            "/ScratchSSD/docker/jovyan/work/data_share": 
                             {"bind": '/home/jovyan/work/data_share', "mode": "rw"},
-                            "/ScratchSSD/docker/a301_setup/a301_2020/sat_lib": 
+                            "/ScratchSSD/docker/jovyan/work/sat_lib": 
                             {"bind": '/home/jovyan/work/sat_lib', "mode": "ro"}
                            }
 
