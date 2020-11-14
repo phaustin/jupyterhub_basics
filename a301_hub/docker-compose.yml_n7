@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+<<<<<<< HEAD:a301_hub/docker-compose.yml
+  jupyterhub_test20:
+    build: hub_image
+    image: phaustin/hub07:oct20
+    container_name: jupyterhub_oct20
+    depends_on: [notebook20]
+=======
+  jupyterhub_test29:
+    build: hub_image
+    image: phaustin/hub07:sep29
+    container_name: jupyterhub_sep29
+    depends_on: [notebook29]
+>>>>>>> 65db063... develse29:examples/simple/docker-compose.yml
+    ports:
+      - ${NB_PORT}:8000
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+<<<<<<< HEAD:a301_hub/docker-compose.yml
+      - net_test20
+
+  notebook20:
+    image: phaustin/notebook:oct20
+    build:
+      context: notebook_image
+    container_name: notebook_oct20
+=======
+      - net_test29
+
+  notebook29:
+    image: phaustin/notebook:sep29
+    build:
+      context: notebook_image
+    container_name: notebook_sep29
+>>>>>>> 65db063... develse29:examples/simple/docker-compose.yml
+
+# force the network name to be "jupyterhub"
+# this needs to be matched in jupyterhub_config.py by:
+# c.DockerSpawner.network_name = 'jupyterhub'
+networks:
+<<<<<<< HEAD:a301_hub/docker-compose.yml
+    net_test20:
+      driver: bridge
+      name: net_oct20
+=======
+    net_test29:
+      driver: bridge
+      name: net_sep29
+>>>>>>> 65db063... develse29:examples/simple/docker-compose.yml
+
