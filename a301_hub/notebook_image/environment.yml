@@ -23,4 +23,6 @@ dependencies:
   - fiona
   - pandas
   - pytest
+  - pyepsg
+  - scikit-image
 # conda-lock -f environment.yml -p linux-64

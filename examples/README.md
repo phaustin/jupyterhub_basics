@@ -1,4 +1,4 @@
-https://github.com/phaustin/jupyterhub_basics/issues/1
+git https://github.com/phaustin/jupyterhub_basics/issues/1
 
 cd jupyterhub_basics/examples/simple
 ./bringdown.sh
