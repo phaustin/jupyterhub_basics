@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  
+  solo:
+    image: phaustin/notebook:nov12
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_TOKEN
+    volumes:
+      - "/media/phil/ssd1/jovyan/work/sat_lib:/home/jovyan/work/sat_lib"
+      - "/media/phil/ssd1/jovyan/work/sat_data:/home/jovyan/work/sat_data"
+      - "/media/phil/ssd1/jovyan/work/data_share:/home/jovyan/work/data_share"
+      - "/media/phil/ssd1/jovyan/work/a301_lib:/home/jovyan/work/a301_lib"
+    command:
+      ["jupyter","notebook","--ip","0.0.0.0"]
+    build:
+      context: notebook_image
+    container_name: notebook_nov12
+
+# force the network name to be "jupyterhub"
+# this needs to be matched in jupyterhub_config.py by:
+# c.DockerSpawner.network_name = 'jupyterhub'
+networks:
+    net_nov12:
+      driver: bridge
+      name: net_nov12
+
