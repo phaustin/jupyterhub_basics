@@ -5,16 +5,17 @@ services:
   solo:
     image: phaustin/notebook:nov14
     ports:
-      - "8888:8888"
+      - "${JUPYTER_NOTEBOOK_PORT}:8888"
     environment:
       - JUPYTER_TOKEN
+      - JUPYTER_NOTEBOOK_PORT
     volumes:
       - "/home/phil/work/sat_lib:/home/jovyan/work/sat_lib"
       - "/home/phil/work/sat_data:/home/jovyan/work/sat_data"
       - "/home/phil/work/data_share:/home/jovyan/work/data_share"
       - "/home/phil/work/a301_lib:/home/jovyan/work/a301_lib"
     command:
-      ["jupyter","notebook","--ip","0.0.0.0"]
+      ["jupyter","notebook","--ip","0.0.0.0","--no-browser"]
     build:
       context: notebook_image
     container_name: notebook_nov12

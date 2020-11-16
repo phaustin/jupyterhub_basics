@@ -24,5 +24,10 @@ dependencies:
   - pandas
   - pytest
   - pyepsg
+  - shapely
   - scikit-image
+  - geopandas
+  - bs4
+  - requests
+  - conda-lock
 # conda-lock -f environment.yml -p linux-64

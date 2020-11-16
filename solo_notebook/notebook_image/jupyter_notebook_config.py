@@ -14,4 +14,4 @@ c.ContentsManager.default_notebook_metadata_filter = (
 
 c.NotebookApp.ip = '0.0.0.0' # listen on all IPs 
 c.NotebookApp.allow_origin = '*' #allow all origins
-c.NotebookApp.token=''
+#c.NotebookApp.token=''
